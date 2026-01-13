@@ -3,510 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Hanae Mahrach - Étudiante en Marketing Digital et Commercial">
     <title>Hanae Mahrach - Portfolio</title>
+
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
-            min-height: 100vh;
-            padding: 20px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
         }
 
         header {
-            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
-            color: white;
-            padding: 60px 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 30px;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s infinite;
+        header img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.5; }
-        }
-
-        header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-
-        header p {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s;
-            font-size: 0.95em;
-        }
-
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        section {
-            margin-bottom: 40px;
-            animation: slideIn 0.6s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        h1 {
+            margin: 10px 0;
         }
 
         h2 {
-            color: #1a2332;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #1a2332;
-            position: relative;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-top: 40px;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: #2c3e50;
+        .contact a {
+            margin: 5px;
+            display: inline-block;
+            text-decoration: none;
+            color: #2c3e50;
         }
 
-        .profile-text {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.8;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid #1a2332;
-        }
-
-        .experience-item, .formation-item {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #1a2332;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .experience-item:hover, .formation-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.15);
-        }
-
-        .experience-item h3, .formation-item h3 {
-            color: #1a2332;
-            margin-bottom: 8px;
-            font-size: 1.2em;
+        .box {
+            margin-top: 15px;
         }
 
         .date {
-            color: #2c3e50;
-            font-weight: 600;
             font-size: 0.9em;
-            margin-bottom: 10px;
-            display: inline-block;
-            background: rgba(26, 35, 50, 0.1);
-            padding: 4px 12px;
-            border-radius: 15px;
+            color: #555;
         }
 
-        .experience-item p, .formation-item p {
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .skill-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 2px solid transparent;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(26, 35, 50, 0.2);
-            border-color: #1a2332;
-        }
-
-        .skill-item h3 {
-            color: #1a2332;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .skill-item p {
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        .languages {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .language {
-            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: default;
-        }
-
-        .language:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.3);
+        ul {
+            padding-left: 20px;
         }
 
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #2c3e50;
             color: white;
-            padding: 14px 35px;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin: 10px 10px 10px 0;
-            box-shadow: 0 4px 10px rgba(26, 35, 50, 0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 35, 50, 0.4);
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .project-card:hover {
-            border-color: #1a2332;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.2);
-        }
-
-        .project-card h3 {
-            color: #1a2332;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            border-radius: 5px;
         }
 
         footer {
-            background: #1a2332;
-            color: white;
             text-align: center;
-            padding: 25px;
-        }
-
-        footer p {
-            margin: 5px 0;
-            opacity: 0.9;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #1a2332 0%, #2c3e50 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -36px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: #1a2332;
-            border-radius: 50%;
-            border: 3px solid #f8f9fa;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            header p {
-                font-size: 1.1em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .skills-grid, .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .btn {
-                display: block;
-                text-align: center;
-                margin: 10px 0;
-            }
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Hanae Mahrach</h1>
-            <p>Étudiante en Marketing Digital et Commercial</p>
-            <div class="contact-info">
-                <a href="mailto:hanae.mahrach@gmail.com"> hanae.mahrach@gmail.com</a>
-                <a href="tel:+212680771840"> +212 680 771 840</a>
-                <a href="https://github.com/hanaemahrach25-debug" target="_blank"> GitHub</a>
-                <a href="https://www.kaggle.com/hanaemahrach" target="_blank"> Kaggle</a>
-            </div>
-        </header>
 
-        <div class="content">
-            <section>
-                <h2>À propos</h2>
-                <p class="profile-text">
-                    Étudiante motivée en 2ème année de Marketing Digital et Commercial à l'EST de Salé, 
-                    je suis passionnée par les stratégies digitales, l'analyse de données et la communication d'entreprise. 
-                    Mon parcours m'a permis de développer une expertise en marketing digital tout en cultivant 
-                    mes compétences analytiques et mon esprit d'équipe.
-                </p>
-            </section>
+<div class="container">
 
-            <section>
-                <h2>Formation</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="formation-item">
-                            <h3>DUT Marketing Digital et Commercial</h3>
-                            <p class="date">Septembre 2025 - Juin 2026 (En cours)</p>
-                            <p><strong>EST de Salé</strong></p>
-                            <p>Stratégies digitales, communication d'entreprise et analyse de données marketing</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="formation-item">
-                            <h3>DUT Management Digital Des Organisations</h3>
-                            <p class="date">Septembre 2024 - Juin 2025</p>
-                            <p><strong>EST de Casablanca</strong></p>
-                            <p>Gestion digitale et organisation d'entreprise</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="formation-item">
-                            <h3>Baccalauréat</h3>
-                            <p class="date">Septembre 2023 - Juin 2024</p>
-                            <p><strong>Lycée Jaber Ibn Hayan, Tétouan</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <header>
+        <img src="Photo.jpg" alt="Hanae Mahrach">
+        <h1>Hanae Mahrach</h1>
+        <p>Étudiante en Marketing Digital et Commercial</p>
 
-            <section>
-                <h2>Expérience</h2>
-                <div class="experience-item">
-                    <h3>Stage d'observation - LafargeHolcim</h3>
-                    <p class="date">Juillet 2025</p>
-                    <p><strong>Tétouan</strong></p>
-                    <p>Observation des processus de production et découverte du secteur industriel</p>
-                </div>
-                <div class="experience-item">
-                    <h3>Membre Actif du Club JLM</h3>
-                    <p class="date">Octobre 2024 - Juin 2025</p>
-                    <p><strong>EST de Casablanca</strong></p>
-                    <p>• Développement de compétences en organisation et travail d'équipe</p>
-                    <p>• Contribution active à la promotion du club sur les réseaux sociaux</p>
-                    <p>• Accueil et intégration des nouveaux membres</p>
-                    <p>• Participation à l'organisation d'événements étudiants</p>
-                </div>
-            </section>
+        <div class="contact">
+            <a href="mailto:hanae.mahrach@gmail.com">📧 Email</a>
+            <a href="tel:+212680771840">📱 Téléphone</a>
+            <a href="https://github.com/hanaemahrach25-debug" target="_blank">GitHub</a>
+            <a href="https://www.kaggle.com/hanaemahrach" target="_blank">Kaggle</a>
+        </div>
+    </header>
 
-            <section>
-                <h2>Projets Data Science</h2>
-                <div class="projects">
-                    <div class="project-card">
-                        <h3>🎯 Analyse Marketing (À venir)</h3>
-                        <p>Projet d'analyse de données marketing incluant la segmentation client et la prédiction de churn. Application des techniques de data science au marketing digital.</p>
-                        <a href="https://github.com/hanaemahrach25-debug" class="btn" target="_blank">Voir sur GitHub</a>
-                    </div>
-                </div>
-            </section>
+    <section>
+        <h2>À propos</h2>
+        <p>
+            Étudiante en Marketing Digital et Commercial, passionnée par les stratégies digitales,
+            l’analyse de données et la communication d’entreprise.
+        </p>
+    </section>
 
-            <section>
-                <h2>Compétences</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3> Analyse de données</h3>
-                        <p>SPSS, Excel avancé, Statistiques descriptives</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3> Design & Création</h3>
-                        <p>Canva, Pack Office, Création de contenu visuel</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3> Marketing Digital</h3>
-                        <p>Réseaux sociaux, Stratégies digitales, Community Management</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3> Soft Skills</h3>
-                        <p>Travail en équipe, Leadership, Communication, Organisation</p>
-                    </div>
-                </div>
-            </section>
+    <section>
+        <h2>Formation</h2>
 
-            <section>
-                <h2>Langues</h2>
-                <div class="languages">
-                    <span class="language">🇲🇦 Arabe - Langue maternelle</span>
-                    <span class="language">🇫🇷 Français - Courant</span>
-                    <span class="language">🇬🇧 Anglais - Intermédiaire</span>
-                    <span class="language">🇪🇸 Espagnol - Notions</span>
-                </div>
-            </section>
-
-            <section>
-                <h2>Documents & Liens</h2>
-                <a href="CV_Hanae_Mahrach.pdf" class="btn">Télécharger mon CV (PDF)</a>
-                <a href="https://www.kaggle.com/hanaemahrach" class="btn">Voir mon profil Kaggle</a>
-                <a href="https://github.com/hanaemahrach25-debug/cv-portfolio" class="btn" target="_blank">Code source du portfolio</a>
-            </section>
+        <div class="box">
+            <strong>DUT Marketing Digital et Commercial</strong><br>
+            <span class="date">2025 – 2026 (en cours)</span><br>
+            EST de Salé
         </div>
 
-        <footer>
-            <p>&copy; 2026 Hanae Mahrach - Tous droits réservés</p>
-            <p>Portfolio créé avec passion et hébergé sur GitHub Pages</p>
-        </footer>
-    </div>
+        <div class="box">
+            <strong>DUT Management Digital des Organisations</strong><br>
+            <span class="date">2024 – 2025</span><br>
+            EST de Casablanca
+        </div>
+
+        <div class="box">
+            <strong>Baccalauréat</strong><br>
+            <span class="date">2023 – 2024</span><br>
+            Lycée Jaber Ibn Hayan – Tétouan
+        </div>
+    </section>
+
+    <section>
+        <h2>Expérience</h2>
+
+        <div class="box">
+            <strong>Stage d'observation – LafargeHolcim</strong><br>
+            <span class="date">Juillet 2025</span><br>
+            Tétouan
+        </div>
+
+        <div class="box">
+            <strong>Membre du Club JLM</strong><br>
+            <span class="date">2024 – 2025</span>
+            <ul>
+                <li>Organisation d’événements</li>
+                <li>Gestion des réseaux sociaux</li>
+                <li>Travail en équipe</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Compétences</h2>
+        <ul>
+            <li>Analyse de données : Excel, SPSS</li>
+            <li>Marketing digital & réseaux sociaux</li>
+            <li>Canva, Pack Office</li>
+            <li>Communication & travail en équipe</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Langues</h2>
+        <ul>
+            <li>Arabe : langue maternelle</li>
+            <li>Français : courant</li>
+            <li>Anglais : intermédiaire</li>
+            <li>Espagnol : notions</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Documents</h2>
+        <a href="CV_Hanae_Mahrach.pdf" class="btn">Télécharger mon CV</a>
+    </section>
+
+    <footer>
+        © 2026 Hanae Mahrach – Portfolio GitHub Pages
+    </footer>
+
+</div>
+
 </body>
 </html>
